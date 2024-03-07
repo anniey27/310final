@@ -1,0 +1,19 @@
+<html lang="en">
+    <head>
+        <title>Home page</title>
+    </head>
+    <body>
+    {% if songs|length == 0 %}
+        <p class="h1">No results found for "{{lyric}}".</p>
+    {% else %}
+        <h2 class="h1">Possible Songs</h2>
+        <ul class="b1">
+            {% for song in songs %}
+                <li class="l2">
+                    <h3>{{ song.title }}</a></h3>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    </body>
+</html>
