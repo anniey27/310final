@@ -3,16 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>LyricHunter</title>
+    <style>
+        h1 {
+            font-family: "Luminari", fantasy;
+            font-size: 50px
+        }
+        h2, h3, h4, h5, h6 {
+            font-family: 'Corben', Geneva, serif;
+        }
+        p {
+            font-family: 'Nobile', Geneva, sans-serif;
+        }
+        body {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>LyricHunter</h1>
-    <h3>"Where's the Lyric From?"</h3>
+    <h1 style="color:purple">LyricHunter</h1>
+    <h3>Do you have a lyric that's stuck in your mind but you can't, for the life of you, remember what song it's
+        from?</h3>
+    <h3>If so, then this website is for you!</h3>
+    <img src="/images/background.jpg" alt="Thumbnail">
+    <br>
+    <br>
     <form action='/results' method="post">
             <p>
-                <label for="lyric">Lyric Phrase</label><br>
-                <input type="text" id="lyric" name="lyric">
+                <b><label for="lyric">Input your lyric phrase here and get a list of potential songs it could be
+                    from:</label><br>
+                <textarea id="lyric" name="lyric" rows="2" cols="80"></textarea></b>
             </p>
-            <p><input type="submit" value="SUBMIT"></p>
+            <p><input type="submit" value="SUBMIT" width="25" height="10"></p>
         </form>
 </body>
 </html>

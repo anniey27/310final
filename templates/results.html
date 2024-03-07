@@ -1,19 +1,65 @@
 <html lang="en">
     <head>
-        <title>Home page</title>
+        <title>Possible Songs</title>
+        <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        li {
+            border: 1px solid #ddd;
+            padding: 10px;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .song-info {
+            flex-grow: 1;
+        }
+        h1 {
+            font-family: "Luminari", fantasy;
+            font-size: 50px
+        }
+        h2, h3, h4, h5, h6 {
+            font-family: 'Corben', Geneva, serif;
+        }
+        p {
+            font-family: 'Nobile', Geneva, sans-serif;
+        }
+        </style>
     </head>
     <body>
-    {% if songs|length == 0 %}
-        <p class="h1">No results found for "{{lyric}}".</p>
-    {% else %}
-        <h2 class="h1">Possible Songs</h2>
-        <ul class="b1">
-            {% for song in songs %}
-                <li class="l2">
-                    <h3>{{ song.title }}</a></h3>
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+        <div class="content-container">
+        {% if songs|length == 0 %}
+            <p>No results found for "{{lyric}}".</p>
+        {% else %}
+            <h1 style="color:purple">LyricHunter</h1>
+            <h3>Potential Songs Based on your Search</h3>
+            <h4><i>Do any of these songs seem familiar? Click the links to see the full lyrics on Genius!</i></h4>
+            <ul>
+                {% for song in songs %}
+                    <li>
+                        <img src="{{ song.thumbnail }}" alt="Thumbnail" width="200" height="200">
+                        <div class="song-info">
+                            <h3>"<a href="{{ song.url }}" target=”_blank” style="color:purple">{{ song.title }}</a>
+                                " by {{ song.artist }}</h3>
+                            <p><i>"...{{ song.snippet }}..."</i></p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        </div>
     </body>
 </html>
