@@ -9,7 +9,6 @@ def index():
     return render_template("index.html")
 
 
-# took from hw 6 CHANGE IT
 @app.route("/results", methods=["GET", "POST"])
 def results():
     if request.method == "GET":
